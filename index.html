@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Scientific Calculator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="calculator">
+        <div class="display">
+            <input type="text" id="expression" readonly>
+            <input type="text" id="result" readonly>
+        </div>
+        <div class="settings">
+            <div class="mode-toggle">
+                <label>
+                    <input type="radio" name="mode" value="deg" checked> Deg
+                </label>
+                <label>
+                    <input type="radio" name="mode" value="rad"> Rad
+                </label>
+            </div>
+            <div class="theme-toggle">
+                <label>
+                    <input type="checkbox" id="theme-switch"> Dark Mode
+                </label>
+            </div>
+            <div class="notation-toggle">
+                <label>
+                    <input type="checkbox" id="scientific-notation"> Scientific Notation
+                </label>
+            </div>
+        </div>
+        <div class="buttons">
+            <button class="memory" data-value="MC">MC</button>
+            <button class="memory" data-value="MR">MR</button>
+            <button class="memory" data-value="M+">M+</button>
+            <button class="memory" data-value="M-">M-</button>
+            <button class="clear" data-value="C">C</button>
+            <button class="operator" data-value="(">(</button>
+            <button class="operator" data-value=")">)</button>
+            <button class="operator" data-value="^">^</button>
+            <button class="operator" data-value="sqrt">√</button>
+            <button class="operator" data-value="!">x!</button>
+            <button class="operator" data-value="sin">sin</button>
+            <button class="operator" data-value="cos">cos</button>
+            <button class="operator" data-value="tan">tan</button>
+            <button class="operator" data-value="log">log</button>
+            <button class="operator" data-value="ln">ln</button>
+            <button class="number" data-value="7">7</button>
+            <button class="number" data-value="8">8</button>
+            <button class="number" data-value="9">9</button>
+            <button class="operator" data-value="/">÷</button>
+            <button class="operator" data-value="%">%</button>
+            <button class="number" data-value="4">4</button>
+            <button class="number" data-value="5">5</button>
+            <button class="number" data-value="6">6</button>
+            <button class="operator" data-value="*">×</button>
+            <button class="operator" data-value="1/x">1/x</button>
+            <button class="number" data-value="1">1</button>
+            <button class="number" data-value="2">2</button>
+            <button class="number" data-value="3">3</button>
+            <button class="operator" data-value="-">-</button>
+            <button class="operator" data-value="exp">exp</button>
+            <button class="number" data-value="0">0</button>
+            <button class="number" data-value=".">.</button>
+            <button class="operator" data-value="pi">π</button>
+            <button class="operator" data-value="+">+</button>
+            <button class="equals" data-value="=">=</button>
+        </div>
+        <div class="advanced-functions">
+            <button class="operator" data-value="sinh">sinh</button>
+            <button class="operator" data-value="cosh">cosh</button>
+            <button class="operator" data-value="tanh">tanh</button>
+            <button class="operator" data-value="logbase">logₐb</button>
+        </div>
+        <div class="equation-solver">
+            <select id="equation-type">
+                <option value="linear">Linear Equation (ax + b = 0)</option>
+                <option value="quadratic">Quadratic Equation (ax² + bx + c = 0)</option>
+            </select>
+            <input type="number" id="coeff-a" placeholder="a">
+            <input type="number" id="coeff-b" placeholder="b">
+            <input type="number" id="coeff-c" placeholder="c">
+            <button id="solve-equation">Solve</button>
+            <div id="equation-result"></div>
+        </div>
+        <div class="matrix-operations">
+            <textarea id="matrix-a" placeholder="Matrix A (comma-separated rows, semicolon-separated columns)"></textarea>
+            <textarea id="matrix-b" placeholder="Matrix B (comma-separated rows, semicolon-separated columns)"></textarea>
+            <select id="matrix-operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+            </select>
+            <button id="perform-matrix-operation">Perform Operation</button>
+            <div id="matrix-result"></div>
+        </div>
+        <div class="complex-numbers">
+            <input type="number" id="complex-real" placeholder="Real part">
+            <input type="number" id="complex-imag" placeholder="Imaginary part">
+            <select id="complex-operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+            </select>
+            <button id="perform-complex-operation">Perform Operation</button>
+            <div id="complex-result"></div>
+        </div>
+        <div class="statistics">
+            <textarea id="stats-data" placeholder="Enter comma-separated numbers"></textarea>
+            <button id="calculate-stats">Calculate Statistics</button>
+            <div id="stats-result"></div>
+        </div>
+        <div class="custom-functions">
+            <input type="text" id="custom-function-name" placeholder="Function name">
+            <input type="text" id="custom-function-body" placeholder="Function body (use 'x' as variable)">
+            <button id="save-function">Save Function</button>
+            <select id="load-function">
+                <option value="">Load Custom Function</option>
+            </select>
+        </div>
+        <div class="unit-conversion">
+            <select id="unit-from">
+                <option value="m">Meters</option>
+                <option value="ft">Feet</option>
+                <option value="kg">Kilograms</option>
+                <option value="lb">Pounds</option>
+                <option value="c">Celsius</option>
+                <option value="f">Fahrenheit</option>
+            </select>
+            <input type="number" id="unit-value" placeholder="Enter value">
+            <select id="unit-to">
+                <option value="m">Meters</option>
+                <option value="ft">Feet</option>
+                <option value="kg">Kilograms</option>
+                <option value="lb">Pounds</option>
+                <option value="c">Celsius</option>
+                <option value="f">Fahrenheit</option>
+            </select>
+            <button id="convert-btn">Convert</button>
+            <div id="conversion-result"></div>
+        </div>
+        <div class="history">
+            <h3>History</h3>
+            <ul id="history-list"></ul>
+        </div>
+    </div>
+    <div id="error-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <p id="error-message"></p>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
