@@ -1,2 +1,2 @@
 # Scientific-calculator
-https://shuvajitdn.github.io/Scientific-calculator/
+https://shuvajit-scientific-calculator.netlify.app/
